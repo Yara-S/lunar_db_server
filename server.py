@@ -23,7 +23,7 @@ async def handleWelcome(request):
 	return web.Response(text="This is not a web page")
 
 app = web.Application(middlewares=[
-        cors_middleware(origins=[re.compile(r"^https?\:\/\/localhost")])
+        cors_middleware(origins=["https://lunarsportwear.herokuapp.com"])
     ])
 app.add_routes([web.get('/produto', handleGet),
 				web.get('', handleWelcome)])
