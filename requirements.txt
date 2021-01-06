@@ -1,0 +1,4 @@
+aiohttp
+psycopg2
+pandas
+numpy
