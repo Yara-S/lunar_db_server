@@ -25,4 +25,4 @@ app.add_routes([web.get('/produto', handleGet),
 				web.get('', handleWelcome)])
 
 if __name__ == '__main__':
-    web.run_app(app, port=os.enriron.get('PORT'), host='0.0.0.0')
+    web.run_app(app, port=os.environ.get('PORT'), host='0.0.0.0')
