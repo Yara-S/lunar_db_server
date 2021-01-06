@@ -1,5 +1,6 @@
 from aiohttp import web
 from data_handler import get_data
+import os
 
 async def handleGet(request):
     try:
@@ -24,4 +25,4 @@ app.add_routes([web.get('/produto', handleGet),
 				web.get('', handleWelcome)])
 
 if __name__ == '__main__':
-    web.run_app(app)
+    web.run_app(app, port=os.enriron.get('PORT'), host=0.0.0.0)
