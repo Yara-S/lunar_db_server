@@ -16,8 +16,12 @@ async def handleGet(request):
 
     return web.json_response(body=data)
 
+async def handleWelcome(request):
+	return web.Response(text="This is not a web page")
+
 app = web.Application()
-app.add_routes([web.get('/produto', handleGet)])
+app.add_routes([web.get('/produto', handleGet),
+				web.get('', handleWelcome)])
 
 if __name__ == '__main__':
     web.run_app(app)
