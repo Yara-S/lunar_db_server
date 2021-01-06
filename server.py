@@ -2,6 +2,7 @@ from aiohttp import web
 from data_handler import get_data
 import os
 from aiohttp_middlewares import cors_middleware
+import re
 
 async def handleGet(request):
     try:
