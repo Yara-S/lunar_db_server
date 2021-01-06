@@ -5,7 +5,9 @@ from aiohttp_middlewares import cors_middleware
 import re
 
 async def handleGet(request):
-    print(request.headers)
+    print(request.rel_url.path)
+    origin = request.headers.get("Origin")
+    print(origin)
     try:
     	request_type =  request.rel_url.query['type']
     except:
