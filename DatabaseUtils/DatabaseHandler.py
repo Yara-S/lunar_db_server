@@ -4,10 +4,12 @@ import os
 
 class DatabaseHandler():
 	def __init__(self):
+
 		self.host = os.environ.get('DB_HOST')
 		self.database = os.environ.get('DB_DATABASE')
 		self.user = os.environ.get('DB_USER')
 		self.pwd = os.environ.get('DB_PWD')
+
 
 		try: 
 
