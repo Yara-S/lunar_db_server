@@ -5,7 +5,7 @@ import aiohttp_cors
 
 ##HANDLERS
 async def handleGet(request):
-    print(origin)
+    
     try:
     	request_type =  request.rel_url.query['type']
     except:
