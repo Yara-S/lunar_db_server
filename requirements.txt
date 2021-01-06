@@ -2,3 +2,4 @@ aiohttp
 psycopg2
 pandas
 numpy
+aiohttp_middlewares

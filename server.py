@@ -1,6 +1,7 @@
 from aiohttp import web
 from data_handler import get_data
 import os
+from aiohttp_middlewares import cors_middleware
 
 async def handleGet(request):
     try:
@@ -20,7 +21,9 @@ async def handleGet(request):
 async def handleWelcome(request):
 	return web.Response(text="This is not a web page")
 
-app = web.Application()
+app = web.Application(middlewares=[
+        cors_middleware(origins=[re.compile(r"^https?\:\/\/localhost")])
+    ])
 app.add_routes([web.get('/produto', handleGet),
 				web.get('', handleWelcome)])
 
