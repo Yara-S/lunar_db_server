@@ -43,4 +43,4 @@ app.add_routes([web.get('/produto', handleGet),
 
 
 if __name__ == '__main__':
-    web.run_app(app, port=8080)#os.environ.get('PORT'), host='0.0.0.0')
+    web.run_app(app, port=os.environ.get('PORT'), host='0.0.0.0')
