@@ -2,4 +2,4 @@ aiohttp
 psycopg2
 pandas
 numpy
-aiohttp_cors
+aiohttp_jwt

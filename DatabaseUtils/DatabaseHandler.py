@@ -10,7 +10,6 @@ class DatabaseHandler():
 		self.user = os.environ.get('DB_USER')
 		self.pwd = os.environ.get('DB_PWD')
 
-
 		try: 
 
 			conn = psycopg2.connect(

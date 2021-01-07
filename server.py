@@ -1,7 +1,7 @@
 from aiohttp import web
 from data_handler import get_data
 import os
-import aiohttp_cors
+from aiohttp_jwt import JWTMiddleware
 
 ##HANDLERS
 async def handleGet(request):
@@ -21,6 +21,8 @@ async def handleGet(request):
 
     return web.json_response(body=data)
 
+
+
 async def handleWelcome(request):
 	return web.Response(text="This is not a web page")
 
@@ -28,20 +30,17 @@ async def handleWelcome(request):
 
 ##APP SETUP
 
-app = web.Application()
+my_secret = os.environ.get('APP_JWT_SECRET')
+
+app = web.Application( middlewares=[
+        JWTMiddleware(my_secret),
+    ])
     
 app.add_routes([web.get('/produto', handleGet),
 				web.get('', handleWelcome)])
 
-##CORS SETUP
-cors = aiohttp_cors.setup(app, defaults={
-    "https://lunarsportwear.herokuapp.com": aiohttp_cors.ResourceOptions(allow_methods=["GET"] )
-})
 
-# Configure CORS on all routes.
-for route in list(app.router.routes()):
-    cors.add(route)
 
 
 if __name__ == '__main__':
-    web.run_app(app, port=os.environ.get('PORT'), host='0.0.0.0')
+    web.run_app(app, port=8080)#os.environ.get('PORT'), host='0.0.0.0')
