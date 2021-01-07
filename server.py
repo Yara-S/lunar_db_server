@@ -33,7 +33,7 @@ async def handleWelcome(request):
 my_secret = os.environ.get('APP_JWT_SECRET')
 
 app = web.Application( middlewares=[
-        JWTMiddleware(my_secret),
+        JWTMiddleware(secret_or_pub_key=my_secret, algorithms="HS256", request_property='user')
     ])
     
 app.add_routes([web.get('/produto', handleGet),
